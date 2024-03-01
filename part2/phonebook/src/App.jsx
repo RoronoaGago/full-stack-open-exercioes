@@ -3,6 +3,10 @@ import { useState } from "react";
 const App = () => {
   const [persons, setPersons] = useState([
     { name: "Arto Hellas", number: "345-434" },
+    { name: "Ada Lovelace", number: "345-434" },
+    { name: "Dan Abramov", number: "345-434" },
+    { name: "Mary Poppendieck", number: "345-434" },
+    { name: "Jovany Badua", number: "345-434" },
   ]);
   const [newName, setNewName] = useState("nbnbv");
   const [newPhone, setNewPhone] = useState("54543");
