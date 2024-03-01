@@ -8,6 +8,8 @@ const App = () => {
     { name: "Mary Poppendieck", number: "345-434" },
     { name: "Jovany Badua", number: "345-434" },
   ]);
+  const [search, setSearch] = useState("")
+  console.log(search)
   const [newName, setNewName] = useState("nbnbv");
   const [newPhone, setNewPhone] = useState("54543");
   const handleNameChange = (e) => {
@@ -32,8 +34,12 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
+
       <form onSubmit={addName}>
+
         <div>
+          <input type="text" onChange={(e) => setSearch(e.target.value)}/>
+          <h1>Add a New</h1>
           name:{" "}
           <input onChange={handleNameChange} value={newName} name="name" />
           <br></br>
@@ -47,7 +53,9 @@ const App = () => {
       <h2>Numbers</h2>
       <div>debug: {newName}</div>
       <div>
-        {persons.map((person, id) => (
+        {persons.filter((item) => {
+          return search.toLowerCase() === "" ? item : item.name.toLowerCase().includes(search)
+        }).map((person, id) => (
           <div key={id}>
             <span>{person.name}</span>
             <span>{person.number}</span>
